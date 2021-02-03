@@ -8,18 +8,46 @@ The goal of cfpr is to ...
 
 ## Installation
 
-You can install the released version of cfpr from [CRAN](https://CRAN.R-project.org) with:
+Run the code below to install `cfpr`.
 
 ``` r
-install.packages("cfpr")
+remotes::install_github("CodeForPhilly/cfpr")
 ```
+
+## Connecting to Data
+
+
+> ⚠️ : In order to load the package, you'll need to put in credentials for the CfP data warehouse. If you don't have credentials, message `@machow` on the Code for Philly slack,
+or reach out on the #cfp-dashboard channel!
+
+Create a `.Renviron` in your Rstudio project or home directory with the content below.
+
+```
+CFP_DIALECT=<FILL_IN>
+CFP_USER=<FILL_IN>
+CFP_PASSWORD=<FILL_IN>
+CFP_PORT=<FILL_IN>
+CFP_DB=<FILL_IN>
+CFP_HOST=<FILL_IN>
+```
+
+Then, replace all the `<FILL_IN>` pieces with settings you received beforehand.
+
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(cfpr)
-## basic example code
+
+## Should have access now to all project tags on CodeForPhilly.org
+cfp_views_laddr_project_tags()
+
+## note that this is a dbplyr table object, so you can do data analysis on it
+library(dplyr)
+
+cfp_views_laddr_project_tags() %>%
+  filter(tag_title == "Python") %>%
+  collect()
+
 ```
 
