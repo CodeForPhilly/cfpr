@@ -1,0 +1,28 @@
+Package: cfpr
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Michael",
+           family = "Chow",
+           role = c("aut", "cre"),
+           email = "mc_al_github@fastmail.com"
+           )
+Description: Connect to Code for Philly data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    glue,
+    dbcooper (>= 0.0.0.9000),
+    dbpath (>= 0.0.0.9000),
+    DBI,
+    dbplyr
+Remotes: 
+    dgrtwo/dbcooper,
+    machow/dbpath

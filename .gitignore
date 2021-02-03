@@ -1,0 +1,6 @@
+# Vim
+.*.sw[po]
+
+# R
+.Rproj.user
+.Renviron
