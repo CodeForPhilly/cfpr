@@ -21,6 +21,7 @@ NULL
     dbcooper::dbc_init(
       DBI::dbConnect(dbpath::dbpath(DB_URL)),
       "cfp",
+      table_formatter = function(x) gsub("CODEFORPHILLY.", "", x, fixed = TRUE),
       env = pkg_ns_env
     )
   }
