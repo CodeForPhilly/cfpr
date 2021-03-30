@@ -7,10 +7,10 @@ NULL
 # Startup ----
 
 .onLoad <- function(libname, pkgname){
-  DB_URL <- Sys.getenv("AIRFLOW_CONN_POSTGRES_DEFAULT")
+  DB_URL <- Sys.getenv("CFP_WAREHOUSE_URI")
   if (DB_URL == "" & Sys.getenv("CFP_USER") != "") {
     DB_URL <- glue::glue(
-      "{CFP_DIALECT}://{CFP_USER}:{CFP_PASSWORD}@{CFP_HOST}:{CFP_PORT}/{CFP_DB}",
+      "{CFP_DIALECT}://{CFP_USER}:{CFP_PASSWORD}@{CFP_HOST}:{CFP_PORT}/{CFP_DATABASE}?warehouse={CFP_WAREHOUSE}&role={CFP_ROLE}",
       .envir = as.list(Sys.getenv())
     )
   }
