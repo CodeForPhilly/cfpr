@@ -7,6 +7,8 @@ NULL
 # Startup ----
 
 .onLoad <- function(libname, pkgname){
+  dbpath::dialect_defaults$set(SnowflakeDSIIDriver = "odbc")
+
   DB_URL <- Sys.getenv("CFP_WAREHOUSE_URI")
   if (DB_URL == "" & Sys.getenv("CFP_USER") != "") {
     DB_URL <- glue::glue(
